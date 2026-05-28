@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA 2026 AI Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">🏠 Home</a></li>
+            <li><a href="/predict">🎯 Predict Match</a></li>
+            <li><a href="/dashboard">📊 Dashboard</a></li>
+            <li><a href="/tournament">🏆 Tournament Simulator</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <h1>⚽ FIFA 2026 AI PREDICTOR</h1>
+        <p>Analytics, prediction, and tournament simulation in one football intelligence hub.</p>
+    </div>
+
+    <div class="container">
+        <div class="hero-grid">
+            <div class="card">
+                <div class="kicker">World Cup 2026 Intelligence</div>
+                <h2>From Data to Decisions</h2>
+                <p>
+                    Powered by historical match data and ranking context, this mini platform predicts outcomes,
+                    compares teams, and simulates knockout paths for the 48-team 2026 FIFA World Cup.
+                </p>
+                <div class="badge-row">
+                    <span class="badge">48 Teams</span>
+                    <span class="badge">USA • Canada • Mexico</span>
+                    <span class="badge">ML Powered</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="kicker">Quick Stats</div>
+                <div class="stat-box">
+                    <div class="stat-label">Tournament Matches</div>
+                    <div class="stat-value">80</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Model Type</div>
+                    <div class="stat-value">Random Forest</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Data Horizon</div>
+                    <div class="stat-value">1872-2025</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="kicker">01</div>
+                <h3>🎯 Match Prediction</h3>
+                <p>Get AI-powered predictions for upcoming matches including win probabilities and predicted scorelines.</p>
+                <br>
+                <a href="/predict" class="btn">Predict Now →</a>
+            </div>
+
+            <div class="card">
+                <div class="kicker">02</div>
+                <h3>📊 Analytics Dashboard</h3>
+                <p>Explore detailed team statistics, FIFA rankings, and historical performance metrics.</p>
+                <br>
+                <a href="/dashboard" class="btn">View Dashboard →</a>
+            </div>
+
+            <div class="card">
+                <div class="kicker">03</div>
+                <h3>🏆 Tournament Simulator</h3>
+                <p>Simulate the entire FIFA World Cup 2026 and predict the tournament champion.</p>
+                <br>
+                <a href="/tournament" class="btn">Simulate Now →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="kicker">Core Capabilities</div>
+            <h2>Key Features</h2>
+            <div class="grid-2">
+                <div>
+                    <p>✅ Real-time match predictions</p>
+                    <p>✅ Win probability calculations</p>
+                    <p>✅ Team strength analysis</p>
+                    <p>✅ Head-to-head comparisons</p>
+                </div>
+                <div>
+                    <p>✅ Historical data analysis</p>
+                    <p>✅ Tournament bracket simulation</p>
+                    <p>✅ Real-data ML training pipeline</p>
+                    <p>✅ Dark-themed football analytics UI</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="kicker">Host Edition</div>
+            <h2>🌍 2026 World Cup Facts</h2>
+            <div class="grid-2">
+                <div class="stat-box">
+                    <div class="stat-label">Tournament Hosts</div>
+                    <div class="stat-value">USA, Canada, Mexico</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Participating Teams</div>
+                    <div class="stat-value">48</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Total Matches</div>
+                    <div class="stat-value">80</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Dataset Span</div>
+                    <div class="stat-value">1872-2025</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card center">
+            <div class="kicker">Stack</div>
+            <h3>Machine Learning Stack</h3>
+            <p>Python, Flask, Scikit-learn, Pandas, and Plotly with SQLite-ready architecture.</p>
+            <p class="subtle">Now training on historical international results dataset from 1872 onward.</p>
+        </div>
+    </div>
+</body>
+</html>

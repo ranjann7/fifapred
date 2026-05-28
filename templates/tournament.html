@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Simulator - FIFA 2026 AI Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">🏠 Home</a></li>
+            <li><a href="/predict">🎯 Predict Match</a></li>
+            <li><a href="/dashboard">📊 Dashboard</a></li>
+            <li><a href="/tournament">🏆 Tournament Simulator</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <h1>🏆 TOURNAMENT SIMULATOR</h1>
+        <p>Run a mini AI simulation of the 2026 bracket and estimate champion probability.</p>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="kicker">Simulation Setup</div>
+            <h2>FIFA World Cup 2026</h2>
+            <div class="grid-2">
+                <div class="stat-box">
+                    <div class="stat-label">Hosts</div>
+                    <div class="stat-value">USA, Canada, Mexico</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Participating Teams</div>
+                    <div class="stat-value">48</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Total Matches</div>
+                    <div class="stat-value">80</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Tournament Stages</div>
+                    <div class="stat-value">5</div>
+                </div>
+            </div>
+
+            <div class="center" style="margin-top: 0.75rem;">
+                <button onclick="simulateTournament()">
+                    🎲 SIMULATE TOURNAMENT
+                </button>
+            </div>
+        </div>
+
+        <div id="tournamentResult"></div>
+
+        <div class="card">
+            <div class="kicker">Format</div>
+            <h2>Tournament Structure</h2>
+            <div class="stat-box">
+                <p style="margin-bottom: 1rem;"><strong style="color: #00ff41;">⚽ Group Stage:</strong> 12 groups of 4 teams</p>
+                <p style="margin-bottom: 1rem;"><strong style="color: #00ff41;">🔄 Knockout Rounds:</strong> 32 teams (8 groups × 2)</p>
+                <p style="margin-bottom: 1rem;"><strong style="color: #00ff41;">🏅 Semi-Finals:</strong> 4 teams</p>
+                <p style="margin-bottom: 1rem;"><strong style="color: #00ff41;">🥇 Finals:</strong> 2 teams</p>
+                <p><strong style="color: #00ff41;">🏆 Champion:</strong> Predicted winner with confidence score</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="kicker">Engine</div>
+            <h2>Simulation Algorithm</h2>
+            <div class="grid-2">
+                <div style="margin-bottom: 1rem;">
+                    <p style="margin-bottom: 1rem;"><strong>1. Group Stage Prediction</strong></p>
+                    <p style="font-size: 0.95rem; color: #e0e0e0;">AI predicts winners of each group by analyzing team strengths and head-to-head records.</p>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <p style="margin-bottom: 1rem;"><strong>2. Knockout Simulation</strong></p>
+                    <p style="font-size: 0.95rem; color: #e0e0e0;">For each knockout match, ML model calculates win probability and predicts progression.</p>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <p style="margin-bottom: 1rem;"><strong>3. Monte Carlo Analysis</strong></p>
+                    <p style="font-size: 0.95rem; color: #e0e0e0;">Runs 10,000 simulations to determine championship probability for each team.</p>
+                </div>
+                <div>
+                    <p style="margin-bottom: 1rem;"><strong>4. Champion Selection</strong></p>
+                    <p style="font-size: 0.95rem; color: #e0e0e0;">Final prediction based on highest champion probability with confidence level.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="kicker">Title Odds</div>
+            <h2>Contenders Analysis</h2>
+            <table>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Championship Odds</th>
+                    <th>Key Strength</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Argentina</td>
+                    <td style="color: #00ff41; font-weight: 700;">18%</td>
+                    <td>Balanced Attack & Defense</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>France</td>
+                    <td style="color: #00ff41; font-weight: 700;">17%</td>
+                    <td>Strong Offensive</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Brazil</td>
+                    <td style="color: #00ff41; font-weight: 700;">16%</td>
+                    <td>Overall Dominance</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>England</td>
+                    <td style="color: #00ff41; font-weight: 700;">14%</td>
+                    <td>Young Talent Pool</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Spain</td>
+                    <td style="color: #00ff41; font-weight: 700;">12%</td>
+                    <td>Experience & Possession</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FIFA 2026 AI Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">🏠 Home</a></li>
+            <li><a href="/predict">🎯 Predict Match</a></li>
+            <li><a href="/dashboard">📊 Dashboard</a></li>
+            <li><a href="/tournament">🏆 Tournament Simulator</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <h1>📊 ANALYTICS DASHBOARD</h1>
+        <p>A compact scouting view of team strength, rankings, and model behavior.</p>
+    </div>
+
+    <div class="container">
+        <div class="grid-2">
+            <div class="card">
+                <div class="kicker">Snapshot</div>
+                <h3>Top 5 Teams by Ranking</h3>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Rating</th>
+                    </tr>
+                    <tr>
+                        <td>🥇</td>
+                        <td>Argentina</td>
+                        <td style="color: #00ff41; font-weight: 700;">1</td>
+                    </tr>
+                    <tr>
+                        <td>🥈</td>
+                        <td>France</td>
+                        <td style="color: #00ff41; font-weight: 700;">2</td>
+                    </tr>
+                    <tr>
+                        <td>🥉</td>
+                        <td>Brazil</td>
+                        <td style="color: #00ff41; font-weight: 700;">1</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>England</td>
+                        <td style="color: #00ff41; font-weight: 700;">4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Spain</td>
+                        <td style="color: #00ff41; font-weight: 700;">8</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="kicker">Aggregate Stats</div>
+                <h3>Team Statistics</h3>
+                <div class="stat-box">
+                    <div class="stat-label">Average FIFA Ranking</div>
+                    <div class="stat-value">12.5</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Strongest Team</div>
+                    <div class="stat-value">Argentina</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Total Teams Analyzed</div>
+                    <div class="stat-value">48</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="kicker">Visual 1</div>
+            <h3>🎯 Team Strength Comparison</h3>
+            <div id="chart" style="height: 400px; margin-top: 0.8rem;" class="chart-container"></div>
+        </div>
+
+        <div class="card">
+            <div class="kicker">Visual 2</div>
+            <h3>Attack vs Defense Rating</h3>
+            <div id="attackDefenseChart" style="height: 400px;" class="chart-container"></div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="kicker">Model Metrics</div>
+                <h3>📈 Model Performance</h3>
+                <div class="stat-box">
+                    <div class="stat-label">Training Accuracy</div>
+                    <div class="stat-value">Live from Train Run</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Evaluation Set</div>
+                    <div class="stat-value">Historical Split</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Model Type</div>
+                    <div class="stat-value">Random Forest</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="kicker">Pipeline</div>
+                <h3>⚙️ ML Pipeline</h3>
+                <p style="margin: 0.5rem 0;"><strong>Data Source:</strong> Historical matches</p>
+                <p style="margin: 0.5rem 0;"><strong>Features Used:</strong> 8 engineered features</p>
+                <p style="margin: 0.5rem 0;"><strong>Training Samples:</strong> Derived from Kaggle 1872-2025 results</p>
+                <p style="margin: 0.5rem 0;"><strong>Prediction Classes:</strong> 3 (Win/Draw/Loss)</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        // Create sample charts
+        function createCharts() {
+            // Strength comparison chart
+            const teams = ['Argentina', 'France', 'Brazil', 'England', 'Spain'];
+            const strength = [90, 88, 87, 85, 78];
+            
+            const trace1 = {
+                x: teams,
+                y: strength,
+                type: 'bar',
+                marker: { color: '#26f38c' }
+            };
+            
+            const layout1 = {
+                title: 'Overall Team Strength',
+                xaxis: { title: 'Team' },
+                yaxis: { title: 'Strength Rating' },
+                paper_bgcolor: 'rgba(5,12,20,0.6)',
+                plot_bgcolor: 'rgba(5,12,20,0.35)',
+                font: { color: '#ecf3ff' },
+                margin: { l: 40, r: 40, t: 40, b: 40 }
+            };
+            
+            Plotly.newPlot('chart', [trace1], layout1, {responsive: true});
+            
+            // Attack vs Defense
+            const attack = [88, 87, 86, 85, 84];
+            const defense = [82, 81, 80, 79, 78];
+            
+            const trace2 = {
+                x: teams,
+                y: attack,
+                name: 'Attack',
+                type: 'scatter',
+                mode: 'lines+markers',
+                line: { color: '#26f38c' },
+                marker: { size: 8 }
+            };
+            
+            const trace3 = {
+                x: teams,
+                y: defense,
+                name: 'Defense',
+                type: 'scatter',
+                mode: 'lines+markers',
+                line: { color: '#ff7b7b' },
+                marker: { size: 8 }
+            };
+            
+            const layout2 = {
+                title: 'Attack vs Defense Ratings',
+                xaxis: { title: 'Team' },
+                yaxis: { title: 'Rating' },
+                paper_bgcolor: 'rgba(5,12,20,0.6)',
+                plot_bgcolor: 'rgba(5,12,20,0.35)',
+                font: { color: '#ecf3ff' },
+                margin: { l: 40, r: 40, t: 40, b: 40 }
+            };
+            
+            Plotly.newPlot('attackDefenseChart', [trace2, trace3], layout2, {responsive: true});
+        }
+        
+        document.addEventListener('DOMContentLoaded', createCharts);
+    </script>
+</body>
+</html>

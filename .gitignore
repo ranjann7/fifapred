@@ -1,0 +1,54 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Models
+model/predictor.pkl
+model/scaler.pkl
+
+# Environment variables
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Testing
+.pytest_cache/
+.coverage
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Node (if using frontend tools)
+node_modules/
+npm-debug.log
+
+# OS-specific
+.DS_Store
+desktop.ini

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Match - FIFA 2026 AI Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">🏠 Home</a></li>
+            <li><a href="/predict">🎯 Predict Match</a></li>
+            <li><a href="/dashboard">📊 Dashboard</a></li>
+            <li><a href="/tournament">🏆 Tournament Simulator</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <h1>🎯 MATCH PREDICTION</h1>
+        <p>Choose any two teams and get winner probability, draw chance, and expected scoreline.</p>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="kicker">Prediction Input</div>
+            <h2>Select Teams</h2>
+            
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="team1">🏟️ Team 1</label>
+                    <select id="team1">
+                        <option value="">Select Team 1</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="team2">🏟️ Team 2</label>
+                    <select id="team2">
+                        <option value="">Select Team 2</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="center" style="margin-top: 0.75rem;">
+                <button onclick="predictMatch()">
+                    🔮 PREDICT MATCH
+                </button>
+            </div>
+        </div>
+
+        <div id="predictionResult"></div>
+
+        <div class="card">
+            <div class="kicker">Model Pipeline</div>
+            <h2>How It Works</h2>
+            <div class="stat-box">
+                <p><strong>1. Team Data Analysis:</strong> The AI analyzes FIFA rankings, historical performance, attack/defense ratings</p>
+                <p style="margin-top: 0.5rem;"><strong>2. Feature Engineering:</strong> Creates meaningful features from team statistics</p>
+                <p style="margin-top: 0.5rem;"><strong>3. ML Model Prediction:</strong> Uses a trained Random Forest model on historical international results</p>
+                <p style="margin-top: 0.5rem;"><strong>4. Probability Calculation:</strong> Computes win probabilities for both teams and draws</p>
+                <p style="margin-top: 0.5rem;"><strong>5. Score Prediction:</strong> Predicts likely final scoreline based on team strengths</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="kicker">Features</div>
+            <h2>Prediction Factors</h2>
+            <div class="grid-2">
+                <div>
+                    <p><strong>📊 FIFA Ranking</strong> - Official team world ranking</p>
+                    <p style="margin-top: 1rem;"><strong>⚔️ Attack Rating</strong> - Offensive capability score</p>
+                    <p style="margin-top: 1rem;"><strong>🛡️ Defense Rating</strong> - Defensive strength score</p>
+                </div>
+                <div>
+                    <p><strong>📈 Historical Results</strong> - Long-term match outcome records</p>
+                    <p style="margin-top: 1rem;"><strong>🏠 Home Advantage</strong> - Venue context (home vs neutral)</p>
+                    <p style="margin-top: 1rem;"><strong>🔄 Team Form Proxy</strong> - Goals for/against driven strength estimate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
