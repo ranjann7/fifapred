@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ⚽ FIFA 2026 AI Predictor
 
 ## Project Overview
@@ -490,3 +491,6 @@ For issues, improvements, or questions:
 **Version:** 1.0.0
 
 Enjoy predicting the FIFA World Cup 2026! ⚽🚀
+=======
+# fifapred
+>>>>>>> 6274899fa034cea99839131a8654dcb854f81fca
